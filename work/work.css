@@ -187,6 +187,82 @@
 }
 
 /* ==========================================================================
+   CARD MODIFIERS — PDF vs Image
+   ========================================================================== */
+
+/* --- Image cards: real inline images --- */
+.work-sample--image .work-sample__image {
+  padding-bottom: 0;
+  background: var(--paper-warm);
+}
+
+.work-sample--image .work-sample__image::before {
+  display: none;
+}
+
+.work-sample--image .work-sample__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* --- PDF cards: document icon + action link --- */
+.work-sample--pdf .work-sample__image {
+  padding-bottom: 40%;
+  background:
+    linear-gradient(135deg, var(--paper-warm) 0%, var(--paper-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.work-sample--pdf .work-sample__image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: none;
+  opacity: 1;
+}
+
+.work-sample--pdf .work-sample__icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--ink-whisper);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.work-sample--pdf .work-sample__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--vermillion);
+  letter-spacing: 0.02em;
+  margin-top: var(--space-md);
+  transition: gap 300ms var(--ease);
+}
+
+.work-sample:hover .work-sample__link {
+  gap: var(--space-sm);
+}
+
+.work-sample--pdf .work-sample__link::after {
+  content: '→';
+  transition: transform 300ms var(--ease);
+}
+
+.work-sample:hover .work-sample__link::after {
+  transform: translateX(2px);
+}
+
+/* ==========================================================================
    WORK NAVIGATION — Cross-links between categories
    ========================================================================== */
 
