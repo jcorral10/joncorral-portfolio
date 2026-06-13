@@ -391,3 +391,140 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   VIDEO EMBEDS
+   ========================================================================== */
+
+.work-video {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--ink, #1A1A1A);
+}
+
+.work-video iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+
+/* ==========================================================================
+   CAROUSEL
+   ========================================================================== */
+
+.carousel {
+  position: relative;
+  border: 1px solid rgba(26,26,26,0.06);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.carousel__track {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel__slide {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+.carousel__slide .work-video {
+  border-radius: 0;
+}
+
+.carousel__controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #FAF8F5;
+  border-top: 1px solid rgba(26,26,26,0.06);
+}
+
+.carousel__btn {
+  background: none;
+  border: 1px solid rgba(26,26,26,0.12);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--ink, #1A1A1A);
+  transition: all 0.2s ease;
+}
+
+.carousel__btn:hover {
+  background: var(--vermillion, #C84032);
+  color: #fff;
+  border-color: var(--vermillion, #C84032);
+}
+
+.carousel__btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.carousel__btn:disabled:hover {
+  background: none;
+  color: var(--ink, #1A1A1A);
+  border-color: rgba(26,26,26,0.12);
+}
+
+.carousel__dots {
+  display: flex;
+  gap: 6px;
+}
+
+.carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(26,26,26,0.15);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  padding: 0;
+}
+
+.carousel__dot--active {
+  background: var(--vermillion, #C84032);
+}
+
+.carousel__label {
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.85rem;
+  color: rgba(26,26,26,0.5);
+}
+
+/* Carousel caption below controls */
+.carousel__caption {
+  padding: 0.75rem 1rem 1rem;
+  background: #fff;
+}
+
+.carousel__caption-title {
+  font-family: var(--font-serif, 'DM Serif Display', serif);
+  font-size: 1.1rem;
+  margin: 0 0 0.25rem;
+}
+
+.carousel__caption-desc {
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.85rem;
+  color: rgba(26,26,26,0.6);
+  margin: 0;
+}
+
+/* Standalone video card */
+.work-sample--video .work-sample__body {
+  padding: 1rem 0 0;
+}
