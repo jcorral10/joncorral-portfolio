@@ -285,15 +285,23 @@
     let current = 0;
     const total = slides.length;
 
+    function setWidths() {
+      const w = carousel.offsetWidth;
+      slides.forEach(s => { s.style.width = w + 'px'; s.style.minWidth = w + 'px'; });
+    }
+
     function goTo(index) {
       current = Math.max(0, Math.min(index, total - 1));
-      track.style.transform = `translateX(-${current * 100}%)`;
+      const w = carousel.offsetWidth;
+      track.style.transform = `translateX(-${current * w}px)`;
       prevBtn.disabled = current === 0;
       nextBtn.disabled = current === total - 1;
       dots.forEach((d, i) => d.classList.toggle('carousel__dot--active', i === current));
       if (label) label.textContent = `${current + 1} / ${total}`;
     }
 
+    setWidths();
+    window.addEventListener('resize', () => { setWidths(); goTo(current); });
     prevBtn.addEventListener('click', () => goTo(current - 1));
     nextBtn.addEventListener('click', () => goTo(current + 1));
     dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
