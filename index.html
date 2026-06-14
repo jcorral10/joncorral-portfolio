@@ -56,7 +56,6 @@
 
       <div class="nav__links" id="nav-links" role="menubar">
         <a href="#about" class="nav__link" role="menuitem">About</a>
-        <a href="#services" class="nav__link" role="menuitem">Services</a>
         <a href="#work" class="nav__link" role="menuitem">Work</a>
         <a href="resume.html" class="nav__link" role="menuitem">Résumé</a>
         <a href="#ai-edge" class="nav__link" role="menuitem">AI</a>
@@ -179,21 +178,103 @@
   </section>
 
   <!-- ====================================================================
-       SERVICES
+       WORK — what I do + portfolio samples
        ==================================================================== -->
-  <section id="services">
+  <section id="work">
     <div class="container">
       <p class="section-label reveal">What I do</p>
       <h2 class="section-title reveal">Good writing, applied everywhere.</h2>
       <p class="section-desc reveal reveal--d1">
         Same instinct for language. Different channels, audiences,
-        and creative constraints. (That's the fun part.)
+        and creative constraints. Here's a sampler.
       </p>
 
       <div class="services__grid">
-        <div class="service reveal">
+
+        <!-- 01 — Social & Digital → social.html -->
+        <a href="work/social.html" class="service service--linked reveal" id="work-card-social">
           <p class="service__number">01</p>
-          <h3 class="service__title">Brand Voice & Copy</h3>
+          <h3 class="service__title">Social &amp; Digital</h3>
+          <p class="service__desc">
+            Paid creative, organic posts, carousels, Reels. Content
+            built for the scroll — but written to make people stop.
+          </p>
+          <div class="work-card__accounts">
+            <span class="work-card__account-label">@hillspet</span>
+            <div class="work-card__account-icons">
+              <span class="work-card__account-link" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </span>
+              <span class="work-card__account-link" aria-label="TikTok">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.18 8.18 0 004.77 1.52V6.84a4.84 4.84 0 01-1-.15z"/></svg>
+              </span>
+              <span class="work-card__account-link" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </span>
+            </div>
+          </div>
+          <span class="service__link">View work →</span>
+        </a>
+
+        <!-- 02 — Email & CRM → email.html -->
+        <a href="work/email.html" class="service service--linked reveal reveal--d1" id="work-card-email">
+          <p class="service__number">02</p>
+          <h3 class="service__title">Email &amp; CRM</h3>
+          <p class="service__desc">
+            Promo campaigns, onboarding flows, retention sequences.
+            Copy that earns the open, rewards the click, and doesn't
+            waste anyone's inbox.
+          </p>
+          <span class="service__link">View work →</span>
+        </a>
+
+        <!-- 03 — Product & Ecommerce (no page) -->
+        <div class="service reveal reveal--d2">
+          <p class="service__number">03</p>
+          <h3 class="service__title">Product &amp; Ecommerce</h3>
+          <p class="service__desc">
+            PDPs, DTC banners, category pages. Conversion copy that
+            respects both the brand and the regulatory landscape.
+          </p>
+        </div>
+
+        <!-- 04 — Digital & Interactive → digital.html -->
+        <a href="work/digital.html" class="service service--linked reveal" id="work-card-digital">
+          <p class="service__number">04</p>
+          <h3 class="service__title">Digital &amp; Interactive</h3>
+          <p class="service__desc">
+            Websites, microsites, digital sales aids, infographics,
+            and interactive presentations for pharma, veterinary, and CPG brands.
+          </p>
+          <span class="service__link">View work →</span>
+        </a>
+
+        <!-- 05 — Print & Collateral → print.html -->
+        <a href="work/print.html" class="service service--linked reveal reveal--d1" id="work-card-print">
+          <p class="service__number">05</p>
+          <h3 class="service__title">Print &amp; Collateral</h3>
+          <p class="service__desc">
+            Print advertising, brochures, point-of-sale, posters,
+            and collateral for veterinary, CPG, and consumer brands.
+          </p>
+          <span class="service__link">View work →</span>
+        </a>
+
+        <!-- 06 — Direct Mail → direct-mail.html -->
+        <a href="work/direct-mail.html" class="service service--linked reveal reveal--d2" id="work-card-direct-mail">
+          <p class="service__number">06</p>
+          <h3 class="service__title">Direct Mail</h3>
+          <p class="service__desc">
+            Direct mail campaigns, holiday cards, event invitations,
+            and reactivation mailers designed to earn attention in the mailbox.
+          </p>
+          <span class="service__link">View work →</span>
+        </a>
+
+        <!-- 07 — Brand Voice (no page) -->
+        <div class="service reveal">
+          <p class="service__number">07</p>
+          <h3 class="service__title">Brand Voice &amp; Copy</h3>
           <p class="service__desc">
             Voice architecture, messaging frameworks, and the daily copy
             that keeps a brand sounding like itself. Consistency is
@@ -201,175 +282,65 @@
           </p>
         </div>
 
+        <!-- 08 — Professional & Technical (no page) -->
         <div class="service reveal reveal--d1">
-          <p class="service__number">02</p>
-          <h3 class="service__title">Social & Digital</h3>
-          <p class="service__desc">
-            Paid creative, organic posts, carousels, Reels. Content
-            built for the scroll — but written to make people stop.
-          </p>
-        </div>
-
-        <div class="service reveal reveal--d2">
-          <p class="service__number">03</p>
-          <h3 class="service__title">Email & CRM</h3>
-          <p class="service__desc">
-            Promo campaigns, onboarding flows, retention sequences.
-            Copy that earns the open, rewards the click, and doesn't
-            waste anyone's inbox.
-          </p>
-        </div>
-
-        <div class="service reveal">
-          <p class="service__number">04</p>
-          <h3 class="service__title">Product & Ecommerce</h3>
-          <p class="service__desc">
-            PDPs, DTC banners, category pages. Conversion copy that
-            respects both the brand and the regulatory landscape.
-          </p>
-        </div>
-
-        <div class="service reveal reveal--d1">
-          <p class="service__number">05</p>
-          <h3 class="service__title">Professional & Technical</h3>
+          <p class="service__number">08</p>
+          <h3 class="service__title">Professional &amp; Technical</h3>
           <p class="service__desc">
             Veterinary CE promotions, clinical webinar copy, peer-level
             authority content. Writing that respects the reader's expertise.
           </p>
         </div>
 
-        <div class="service reveal reveal--d2">
-          <p class="service__number">06</p>
-          <h3 class="service__title">Print & Editorial</h3>
+        <!-- 09 — Video & Motion → video.html -->
+        <a href="work/video.html" class="service service--linked reveal reveal--d2" id="work-card-video">
+          <p class="service__number">09</p>
+          <h3 class="service__title">Video &amp; Motion</h3>
           <p class="service__desc">
-            Long-form, brochures, POS. The OG craft — where every word
-            has to earn its place on a physical page.
+            Brand videos, social content, TV spots, and educational
+            series — scripts, concepts, and creative direction.
           </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====================================================================
-       WORK
-       ==================================================================== -->
-  <section class="section--warm" id="work">
-    <div class="container">
-      <p class="section-label reveal">Selected work</p>
-      <h2 class="section-title reveal">Things I've written. (A sampler.)</h2>
-      <p class="section-desc reveal reveal--d1">
-        Social, email, product, print, and the AI systems that
-        make the whole machine hum.
-      </p>
-
-      <div class="work__grid">
-
-        <div class="work-card work-card--featured reveal">
-          <img src="assets/images/work-ai.png" alt="AI-powered content workflow diagram" class="work-card__img" loading="lazy">
-          <div class="work-card__body">
-            <span class="work-card__category">AI + Strategy</span>
-            <h3 class="work-card__title">AI-Powered Content System</h3>
-            <p class="work-card__desc">
-              Built a complete AI copywriting workflow — NotebookLM
-              knowledge bases, prompt-engineered templates, automated QA
-              — producing on-brand content at scale.
-            </p>
-          </div>
-        </div>
-
-        <a href="work/social.html" class="work-card reveal reveal--d1" id="work-card-social">
-          <img src="assets/images/work-social.png" alt="Social media campaign mockups" class="work-card__img" loading="lazy">
-          <div class="work-card__body">
-            <span class="work-card__category">Social</span>
-            <h3 class="work-card__title">Paid & Organic Campaigns</h3>
-            <p class="work-card__desc">
-              Consumer and professional social content — carousels,
-              Reels, paid creative, and veterinary CE promotions.
-            </p>
-          </div>
+          <span class="service__link">View work →</span>
         </a>
 
-        <a href="work/email.html" class="work-card reveal reveal--d2" id="work-card-email">
-          <img src="assets/images/work-email.png" alt="Email marketing campaign on laptop" class="work-card__img" loading="lazy">
-          <div class="work-card__body">
-            <span class="work-card__category">Email</span>
-            <h3 class="work-card__title">DTC Email & CRM Campaigns</h3>
-            <p class="work-card__desc">
-              Full-funnel email sequences — promo pushes, onboarding
-              journeys, and retention series driving DTC revenue.
-            </p>
-          </div>
-        </a>
-
-        <div class="work-card reveal reveal--d1">
-          <img src="assets/images/work-product.png" alt="Product page displayed on tablet" class="work-card__img" loading="lazy">
-          <div class="work-card__body">
-            <span class="work-card__category">Product</span>
-            <h3 class="work-card__title">Ecommerce & Product Pages</h3>
-            <p class="work-card__desc">
-              PDPs, DTC homepage banners, shopper marketing — conversion
-              copy within strict claims compliance frameworks.
-            </p>
-          </div>
-        </div>
-
-        <!-- Text-only cards for additional categories -->
-        <a href="work/digital.html" class="work-card reveal" id="work-card-digital">
-          <div class="work-card__body">
-            <span class="work-card__category">Digital</span>
-            <h3 class="work-card__title">Digital &amp; Interactive</h3>
-            <p class="work-card__desc">
-              Websites, microsites, digital sales aids, infographics,
-              and interactive presentations for pharma, veterinary, and CPG brands.
-            </p>
-          </div>
-        </a>
-
-        <a href="work/direct-mail.html" class="work-card reveal reveal--d1" id="work-card-direct-mail">
-          <div class="work-card__body">
-            <span class="work-card__category">Direct Mail</span>
-            <h3 class="work-card__title">Mailers &amp; Invitations</h3>
-            <p class="work-card__desc">
-              Direct mail campaigns, holiday cards, event invitations,
-              and reactivation mailers designed to earn attention in the mailbox.
-            </p>
-          </div>
-        </a>
-
-        <a href="work/print.html" class="work-card reveal reveal--d2" id="work-card-print">
-          <div class="work-card__body">
-            <span class="work-card__category">Print</span>
-            <h3 class="work-card__title">Print &amp; Collateral</h3>
-            <p class="work-card__desc">
-              Print advertising, brochures, point-of-sale, posters,
-              and collateral for veterinary, CPG, and consumer brands.
-            </p>
-          </div>
-        </a>
-
-        <a href="work/video.html" class="work-card reveal" id="work-card-video">
-          <div class="work-card__body">
-            <span class="work-card__category">Video</span>
-            <h3 class="work-card__title">Video &amp; Motion</h3>
-            <p class="work-card__desc">
-              Brand videos, social content, TV spots, and educational
-              series — scripts, concepts, and creative direction.
-            </p>
-          </div>
-        </a>
-
-        <a href="work/radio.html" class="work-card reveal reveal--d1" id="work-card-radio">
-          <div class="work-card__body">
-            <span class="work-card__category">Radio</span>
-            <h3 class="work-card__title">Broadcast Copywriting</h3>
-            <p class="work-card__desc">
-              Radio spots and broadcast scripts — writing for the ear
-              where every word has to land on first listen.
-            </p>
-          </div>
+        <!-- 10 — Radio & Audio → radio.html -->
+        <a href="work/radio.html" class="service service--linked reveal" id="work-card-radio">
+          <p class="service__number">10</p>
+          <h3 class="service__title">Radio &amp; Broadcast</h3>
+          <p class="service__desc">
+            Radio spots and broadcast scripts — writing for the ear
+            where every word has to land on first listen.
+          </p>
+          <span class="service__link">View work →</span>
         </a>
 
       </div>
+
+      <!-- Social Accounts Callout -->
+      <div class="social-callout reveal" id="social-accounts">
+        <div class="social-callout__header">
+          <span class="social-callout__icon" aria-hidden="true">📱</span>
+          <span class="social-callout__label">Accounts I manage</span>
+        </div>
+        <p class="social-callout__desc">
+          I write and manage social content across these Hill's Pet Nutrition channels — paid creative, organic posts, carousels, Reels, and veterinary CE promotions.
+        </p>
+        <div class="social-callout__accounts">
+          <a href="https://www.instagram.com/hillspet" target="_blank" rel="noopener noreferrer" class="social-callout__account" id="callout-ig">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            <span class="social-callout__handle">@hillspet</span>
+          </a>
+          <a href="https://www.tiktok.com/@hillspet" target="_blank" rel="noopener noreferrer" class="social-callout__account" id="callout-tt">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.18 8.18 0 004.77 1.52V6.84a4.84 4.84 0 01-1-.15z"/></svg>
+            <span class="social-callout__handle">@hillspet</span>
+          </a>
+          <a href="https://www.facebook.com/HillsPet" target="_blank" rel="noopener noreferrer" class="social-callout__account" id="callout-fb">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <span class="social-callout__handle">Hill's Pet</span>
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
 
