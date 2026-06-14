@@ -289,6 +289,12 @@
   z-index: 1;
 }
 
+.work-sample__preview {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .work-sample--pdf .work-sample__link {
   display: inline-flex;
   align-items: center;
