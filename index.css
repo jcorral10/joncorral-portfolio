@@ -3,8 +3,10 @@
    Design: Minimalist Japanese aesthetic with warm digital subtlety
    ========================================================================== */
 
-/* --- Fonts --- */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap');
+/* --- Fonts ---
+   Loaded via <link> in HTML head with preconnect for faster LCP.
+   See index.html for the Google Fonts stylesheet reference.
+   --- */
 
 /* --- Design Tokens --- */
 :root {
@@ -85,7 +87,7 @@ body {
   font-family: var(--font-sans);
   font-size: var(--text-base);
   font-weight: 400;
-  line-height: 1.8;
+  line-height: 1.7;
   color: var(--ink);
   background-color: var(--paper);
   overflow-x: hidden;
@@ -115,10 +117,10 @@ ul, ol { list-style: none; }
   clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
 
-/* --- Reveal animation --- */
+/* --- Reveal animation (IO fallback) --- */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(20px);
   transition: opacity var(--duration-slow) var(--ease),
               transform var(--duration-slow) var(--ease);
 }
@@ -130,6 +132,25 @@ ul, ol { list-style: none; }
 .reveal--d2 { transition-delay: 240ms; }
 .reveal--d3 { transition-delay: 360ms; }
 .reveal--d4 { transition-delay: 480ms; }
+
+/* --- Scroll-driven reveal (modern browsers) --- */
+@supports ((animation-timeline: view()) and (animation-range: entry)) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: none;
+    animation: sda-reveal 1s ease both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 85%;
+  }
+  .reveal.is-visible { animation: sda-reveal 1s ease both; animation-timeline: view(); animation-range: entry 5% entry 85%; }
+  .reveal--d1, .reveal--d2, .reveal--d3, .reveal--d4 { transition-delay: 0ms; }
+
+  @keyframes sda-reveal {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
 
 /* ==========================================================================
    NAVIGATION — minimal, disappears into the page
@@ -145,10 +166,12 @@ ul, ol { list-style: none; }
 
 .nav.is-scrolled {
   padding: var(--space-md) 0;
-  background: rgba(250, 248, 245, 0.92);
-  backdrop-filter: blur(16px) saturate(120%);
-  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  background: rgba(250, 248, 245, 0.88);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
   border-bottom: var(--border-hair);
+  box-shadow: 0 1px 3px rgba(26, 26, 26, 0.04),
+              0 4px 12px rgba(26, 26, 26, 0.02);
 }
 
 .nav__inner {
@@ -369,11 +392,30 @@ ul, ol { list-style: none; }
 .hero__portrait-img {
   width: 100%;
   max-width: 380px;
-  border-radius: 0;
+  border-radius: 12px;
   filter: contrast(1.3) brightness(1.05);
   mix-blend-mode: multiply;
   /* multiply makes white → transparent, preserving ink strokes */
   isolation: auto;
+  box-shadow:
+    0 4px 8px rgba(26, 26, 26, 0.04),
+    0 20px 40px rgba(26, 26, 26, 0.06),
+    0 40px 80px rgba(26, 26, 26, 0.03);
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.hero__portrait:hover .hero__portrait-img {
+  transform: translateY(-6px) rotateY(-2deg);
+  box-shadow:
+    0 8px 16px rgba(26, 26, 26, 0.06),
+    0 30px 60px rgba(26, 26, 26, 0.08),
+    0 60px 100px rgba(26, 26, 26, 0.04);
+}
+
+.hero__portrait {
+  perspective: 800px;
 }
 
 /* Subtle accent mark near portrait */
@@ -457,6 +499,7 @@ section {
   line-height: 1.2;
   letter-spacing: -0.02em;
   margin-bottom: var(--space-lg);
+  text-wrap: balance;
 }
 
 .section-desc {
@@ -485,6 +528,27 @@ section {
 .section--ink {
   background: var(--ink);
   color: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient drift glow for dark sections */
+.section--ink::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(
+    ellipse at 30% 50%,
+    rgba(200, 64, 50, 0.05) 0%,
+    transparent 50%
+  );
+  animation: ambient-drift 20s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes ambient-drift {
+  to { transform: translate(10%, -5%) rotate(5deg); }
 }
 
 .section--ink .section-label { color: var(--ink-whisper); }
@@ -666,15 +730,20 @@ a.service--linked:hover .service__link {
 .work-card {
   position: relative;
   overflow: hidden;
-  border: var(--border-hair);
-  border-radius: var(--radius);
+  border: 1px solid transparent;
+  border-radius: 6px;
   background: var(--paper);
-  transition: all 400ms var(--ease);
+  box-shadow: 0 1px 3px rgba(26, 26, 26, 0.04);
+  transition: transform 400ms var(--ease-out),
+              box-shadow 400ms var(--ease-out),
+              border-color 400ms var(--ease);
 }
 
 .work-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(26, 26, 26, 0.08);
+  box-shadow: 0 12px 32px rgba(26, 26, 26, 0.08),
+              0 4px 8px rgba(26, 26, 26, 0.04);
+  border-color: var(--vermillion-soft);
 }
 
 .work-card--featured {
@@ -688,11 +757,11 @@ a.service--linked:hover .service__link {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 600ms var(--ease);
+  transition: transform 600ms var(--ease-out);
 }
 
 .work-card:hover .work-card__img {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 /* Non-featured cards: image on top */
@@ -891,15 +960,20 @@ a.service--linked:hover .service__link {
   display: flex;
   gap: var(--space-lg);
   padding: var(--space-lg);
+  background: rgba(250, 248, 245, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(250, 248, 245, 0.08);
-  border-radius: var(--radius);
+  border-radius: 8px;
   transition: all 400ms var(--ease);
 }
 
 .ai-cap:hover {
-  background: rgba(250, 248, 245, 0.04);
-  border-color: var(--vermillion);
-  transform: translateX(4px);
+  background: rgba(250, 248, 245, 0.07);
+  border-color: rgba(200, 64, 50, 0.4);
+  box-shadow: 0 0 30px rgba(200, 64, 50, 0.06),
+              0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
 }
 
 .ai-cap__marker {
@@ -959,6 +1033,20 @@ a.service--linked:hover .service__link {
   border-top: var(--border-hair);
   border-bottom: var(--border-hair);
   overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
 }
 
 .marquee__track {
@@ -1091,14 +1179,41 @@ a.service--linked:hover .service__link {
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: multiply;
-  transition: transform 100ms var(--ease);
+  box-shadow: 0 0 8px rgba(200, 64, 50, 0.3);
+  transition: transform 100ms var(--ease), background 300ms var(--ease);
   opacity: 0;
 }
 
 .cursor-dot.is-active { opacity: 0.6; }
 .cursor-dot.is-hovering { transform: scale(4); opacity: 0.15; }
 
+/* Invert cursor on dark sections */
+.section--ink .cursor-dot.is-active {
+  background: var(--paper);
+  box-shadow: 0 0 8px rgba(250, 248, 245, 0.3);
+}
+
 @media (pointer: coarse) {
   .cursor-dot { display: none; }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY — respect reduced motion preference
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: none;
+  }
+  .marquee__track { animation: none; }
+  .hero__scroll { animation: none; }
+  .cursor-dot { display: none; }
+  .hero__portrait-img { transition: none; }
+  .work-card, .work-card__img, .ai-cap, .nav {
+    transition: none;
+  }
+  .section--ink::before { animation: none; }
 }
